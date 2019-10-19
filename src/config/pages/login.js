@@ -30,5 +30,15 @@ export default {
       loader: () => import('../../components/pages/login/signup' /* webpackChunkName: "pages.login.signup" */),
       loading: Loader
     })
+  },
+  ForgotPassword: {
+    title: 'forgotpassword.title',
+    link: '/forgot-password',
+    exact: true,
+    layout: AUTHENTICATION_LAYOUT,
+    component: Loadable({
+      loader: () => import('../../components/pages/login/signup' /* webpackChunkName: "pages.login.signup" */),
+      loading: Loader
+    })
   }
 }

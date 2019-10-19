@@ -1,6 +1,6 @@
 export default Object.freeze({
   API: {
-    host: "https://development.api.skeleton.proxy.drukka.hu/api-docs",
+    host: 'http://192.168.10.247:8001/api-docs',
     headers: {
       Authentication: {
         name: 'Authentication',
@@ -11,5 +11,8 @@ export default Object.freeze({
   },
   Localize: {
     defaultLanguageCode: 'en'
+  },
+  App: {
+    name: 'Cancell'
   }
 });

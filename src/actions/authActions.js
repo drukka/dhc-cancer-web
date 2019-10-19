@@ -12,10 +12,13 @@ const authActions = {
         .then(response => localStorage.setItem(settings.API.headers.Authentication.localStorageKey, response.token))
         .then(response => dispatch({type: authActionTypes.setSignInResponse, static: name, data: response}))
         .catch(() => localStorage.removeItem(settings.API.headers.Authentication.localStorageKey))
-        .catch(response => dispatch({
-          type: authActionTypes.setSignInError,
-          error: {status: response.status, message: response.body}
-        }));
+        .catch(response => {
+          console.error('Authentication error:', response);
+          dispatch({
+            type: authActionTypes.setSignInError,
+            error: {status: response.status, message: response.body}
+          })
+        });
     };
   }
 };
