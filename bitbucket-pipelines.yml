@@ -1,0 +1,66 @@
+####### DRUKKA DIGITALS DEFAULT BITBUCKET PIPELINE TEMPLATE #######
+##      Default variables used:                                  ##
+##        - GCLOUD_PROJECT                                       ##
+##        - KEY_FILE (for GCLOUD_PROJECT)                        ##
+##        - GCP_VM_SIZE                                          ##
+##        - GCP_ZONE                                             ##
+##        - PORT                                                 ##
+##        - PROJECT                                              ##
+##        - DOCKER_CLEAN_SH                                      ##
+###################################################################
+definitions:
+  steps:
+    - step: &tag-back
+        name: Create new tags
+        script:
+          # Add ENVIRONMENT_VARIABLES.txt contents to environment
+          - echo "Add ENVIRONMENT_VARIABLES.txt contents to environment"
+          - export $(cat ENVIRONMENT_VARIABLES.txt | xargs -0)
+
+          - git tag -a $MAJOR.$MINOR.$PATCH -m "v$MAJOR.$MINOR.$PATCH"
+          - git push --tags
+
+    - step: &configure
+        name: Configure API environment
+        script:
+          # Getting current version
+          - export GIT_TAG=$(git describe) && git describe || export GIT_TAG='0.0.0'
+          - export PORJECT_VERSION="$(cut -d '-' -f 1 <<< $GIT_TAG)" ; export MAJOR="$(cut -d '.' -f 1 <<< $PORJECT_VERSION)" ; export MINOR="$(cut -d '.' -f 2 <<< $PORJECT_VERSION)" ; export PATCH="$(cut -d '.' -f 3 <<< $PORJECT_VERSION)"
+          - export COMMIT_MESSAGE="$(git log -n 1 --pretty=format:%s $BITBUCKET_COMMIT)"
+          - if [[ $COMMIT_MESSAGE = *feature/* ]]; then MINOR=$((MINOR+1)) && PATCH=0; else PATCH=$((PATCH+1)); fi
+          - export NEW_VERSION=$MAJOR.$MINOR.$PATCH
+
+          # Setting up environment variables
+          - echo "Setting up environment variables"
+          - export IMAGE_NAME=eu.gcr.io/$GCLOUD_PROJECT/$BITBUCKET_REPO_SLUG:$NEW_VERSION
+          - export ENVIRONMENT=$BITBUCKET_DEPLOYMENT_ENVIRONMENT
+
+          # Copy all the environment variables to a file, as KEY=VALUE, to share to other steps
+          - unset LESSOPEN ; unset LESSCLOSE ; unset COMMIT_MESSAGE
+          - printenv ; printenv > ENVIRONMENT_VARIABLES.txt
+
+        artifacts:
+          - ENVIRONMENT_VARIABLES.txt
+          -
+    - step: &lint-and-test
+        image: node:10.16.3
+        name: Lint and test
+        caches:
+          - node
+        script:
+          - echo "Install node modules..." ; npm install
+          - echo "Runnin Linter..." ; npm run lint
+          - echo "Running tests..." ; npm run test:CI
+          - echo "Runnin test coverage..." ; npm run test:cover:CI
+          - echo "Runnin NPM Audit..." ; npm audit
+
+pipelines:
+  pull-requests:
+    '**': # any branches
+      - step: *lint-and-test
+  branches:
+    development:
+      - step:
+          <<: *configure
+          deployment: development
+      - step: *tag-back
