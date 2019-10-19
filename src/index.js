@@ -5,6 +5,7 @@ import {render} from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import configureStore, {history} from './store/configureStore';
 import Loadable from "react-loadable";
+import 'semantic-ui-css/semantic.min.css';
 import Loader from './components/modules/loader';
 
 import './favicon.ico';

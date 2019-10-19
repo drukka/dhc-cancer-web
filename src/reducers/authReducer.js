@@ -2,11 +2,15 @@ import authActionTypes from '../constants/actionTypes';
 import initialState from './initialState';
 
 export default function authReducer(state = initialState.auth, action) {
+
+  console.log("state",state);
+  console.log("action",action);
   switch (action.type) {
     case authActionTypes.setSignInResponse:
       return {
         ...state,
-        token: action.data.token
+        token: action.token,
+        error: false
       };
     case authActionTypes.setSignInError:
       return {

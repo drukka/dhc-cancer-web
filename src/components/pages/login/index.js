@@ -1,29 +1,32 @@
-import React, {useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
+import React, {useState} from 'react';
+import {Link, Redirect} from "react-router-dom";
 import {bindActionCreators} from "redux";
 import authActions from "../../../actions/authActions";
 import userActions from "../../../actions/userActions";
 import {connect} from "react-redux";
-import {Button, Card, Checkbox, Form, Icon} from "semantic-ui-react";
+import {Button, Card, Form, Icon, Message} from "semantic-ui-react";
 import {pages as PagesConfig} from "../../../config/pages";
 import {default as AppSettings} from "../../../config/settings";
 import authenticationBackgroundImage from "../../../assets/backgrounds/authenticationBackground.jpg";
 
-const LoginIndex = ({auth, authActions, user, userActions}) => {
+const LoginIndex = ({authReducer, authActions}) => {
   const [loading, setLoading] = useState(false);
+  const [redirect, setRedirect] = useState(false);
 
-  useEffect(()=>{
-    console.log('user',user);
-    console.log('auth',auth);
-  },[auth,user]);
+  const setLoadingFalse = () => setLoading(false);
 
   const submitForm = event => {setLoading(true); logInAction(getFormData(event))};
   const getFormData = event => {return {'email': event.target.email.value, 'password': event.target.password.value}};
-  const logInAction = formData => authActions.signInAction(formData.email, formData.password).then(console.log).catch(console.error);
+  const logInAction = formData => authActions.signInAction(formData.email, formData.password).finally(setLoadingFalse);
 
   const loginForm = () => {
     return (
-      <Form onSubmit={submitForm} id={'loginForm'}>
+      <Form onSubmit={submitForm} id={'loginForm'} error={!!authReducer.error}>
+        <Message
+          error
+          header='Failed to process your request'
+          content='You have entered invalid e-mail address or password'
+        />
         <Form.Field>
           <label className={'text-left'}>E-mail</label>
           <input placeholder='example@mail.com' name={'email'} type={'email'} disabled={loading}/>
@@ -41,13 +44,14 @@ const LoginIndex = ({auth, authActions, user, userActions}) => {
       </Form>);
   };
 
+  if(authReducer.token != null) return <Redirect to={PagesConfig.Main.link}/>
   return <Card fluid style={{backgroundImage: 'url('+authenticationBackgroundImage+')'}}>
     <Card.Content>
-      <Card.Header>Log in to <strong>{AppSettings.App.name}</strong></Card.Header>
+      <Card.Header className={'logo-wrapper'}>Log in to <strong>{AppSettings.App.name}</strong></Card.Header>
       {loginForm()}
     </Card.Content>
     <Card.Content extra>
-      <Link to={PagesConfig.ForgotPassword.link}>
+      <Link to={"#"+PagesConfig.ForgotPassword.link}>
         Forgot your password?
       </Link>
     </Card.Content>
@@ -56,14 +60,13 @@ const LoginIndex = ({auth, authActions, user, userActions}) => {
 
 function mapStateToProps(state) {
   return {
-    user: state.user,
-    auth: state.auth,
+    authReducer: state.authReducer
   };
 }
 function mapDispatchToProps(dispatch) {
   return {
     authActions: bindActionCreators(authActions, dispatch),
-    userActions: bindActionCreators(userActions, dispatch),
+    userActions: bindActionCreators(userActions, dispatch)
   };
 }
 

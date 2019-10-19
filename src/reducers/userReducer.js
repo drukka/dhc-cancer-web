@@ -7,7 +7,7 @@ export default function authReducer(state = initialState.user, action) {
       return {
         ...state,
         user: {
-          ...action.data.user
+          ...action.user
         }
       };
     case userActionTypes.setSignInError:

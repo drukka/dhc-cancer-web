@@ -6,7 +6,6 @@ import Swagger from 'swagger-client';
 import detectBrowserLanguage from 'detect-browser-language';
 import Router from './Router';
 import settings from "../config/settings";
-import 'semantic-ui-css/semantic.min.css';
 import './App.scss'
 import {hot} from "react-hot-loader";
 import Observables from "../utils/observables";
