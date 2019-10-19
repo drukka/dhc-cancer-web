@@ -43,7 +43,7 @@ browserSync({
           chunkModules: false
         },
 
-        // for other settings see
+        // for patients settings see
         // https://webpack.js.org/guides/development/#using-webpack-dev-middleware
       }),
       webpackHotMiddleware(bundler)

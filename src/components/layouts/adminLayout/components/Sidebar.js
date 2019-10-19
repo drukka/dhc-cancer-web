@@ -6,6 +6,7 @@ import SmallLogo from '../../../../assets/logos/small.png';
 import BigLogo from '../../../../assets/logos/big.png';
 import {Link} from "react-router-dom";
 import Observables from "../../../../utils/observables";
+import authenticationBackgroundImage from "../../../../assets/backgrounds/authenticationBackground.jpg";
 
 class AdminLayoutSidebar extends React.Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class AdminLayoutSidebar extends React.Component {
   render() {
     return <Sidebar.Pushable as={Container} fluid>
       <Sidebar
-        className={'sidebar-component'}
+        className={'sidebar-component'} style={{backgroundImage: 'url('+authenticationBackgroundImage+')'}}
         as={Menu}
         animation='push'
         inverted
@@ -55,14 +56,14 @@ class AdminLayoutSidebar extends React.Component {
 
         {this.headerLogo()}
 
-        <Menu.Item as={Link} to={'/main'}>
+        <Menu.Item as={Link} to={'/home'}>
           <Icon name='home'/>
           <span className={this.state.expanded ? 'menu-label visible' : 'menu-label hidden'}>Home</span>
         </Menu.Item>
 
-        <Menu.Item as={Link} to={'/other'}>
+        <Menu.Item as={Link} to={'/patients'}>
           <Icon name='cog'/>
-          <span className={this.state.expanded ? 'menu-label visible' : 'menu-label hidden'}>other</span>
+          <span className={this.state.expanded ? 'menu-label visible' : 'menu-label hidden'}>My patients</span>
         </Menu.Item>
 
         {this.footerBox()}

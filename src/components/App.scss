@@ -1,7 +1,11 @@
-body {
-  height: calc(101vh) !important;
-}
+.text-left    { text-align: left;   }
+.text-right   { text-align: right;  }
+.text-center  { text-align: center; }
 
-.text-left {
-  text-align: left;
+.pull-left    { float: left !important;  }
+.pull-right   { float: right !important; }
+
+
+.pagination-margin-top {
+  margin-top: 100px;
 }

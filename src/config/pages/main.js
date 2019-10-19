@@ -9,25 +9,25 @@ export default {
     link: '/',
     exact: true,
     layout: ADMIN_LAYOUT,
-    render: <Redirect to={'/main'}/>
+    render: <Redirect to={'/home'}/>
   },
-  Main: {
-    title: 'main.title',
-    link: '/main',
+  Home: {
+    title: 'home.title',
+    link: '/home',
     exact: true,
     layout: ADMIN_LAYOUT,
     component: Loadable({
-      loader: () => import('../../components/pages/main' /* webpackChunkName: "pages.main.index" */),
+      loader: () => import('../../components/pages/home' /* webpackChunkName: "pages.home.index" */),
       loading: Loader
     })
   },
-  Other: {
-    title: 'other.title',
-    link: '/other',
+  Patients: {
+    title: 'patients.title',
+    link: '/patients',
     exact: true,
     layout: ADMIN_LAYOUT,
     component: Loadable({
-      loader: () => import('../../components/pages/other' /* webpackChunkName: "pages.other.index" */),
+      loader: () => import('../../components/pages/patients' /* webpackChunkName: "pages.patient.index" */),
       loading: Loader
     })
   }

@@ -8,10 +8,10 @@ import {Button, Card, Form, Icon, Message} from "semantic-ui-react";
 import {pages as PagesConfig} from "../../../config/pages";
 import {default as AppSettings} from "../../../config/settings";
 import authenticationBackgroundImage from "../../../assets/backgrounds/authenticationBackground.jpg";
+import {LoginIndex as LoginIndexPropTypes} from "../../../types";
 
 const LoginIndex = ({authReducer, authActions}) => {
   const [loading, setLoading] = useState(false);
-  const [redirect, setRedirect] = useState(false);
 
   const setLoadingFalse = () => setLoading(false);
 
@@ -44,7 +44,8 @@ const LoginIndex = ({authReducer, authActions}) => {
       </Form>);
   };
 
-  if(authReducer.token != null) return <Redirect to={PagesConfig.Main.link}/>
+  if(authReducer.token != null) return <Redirect to={PagesConfig.Home.link}/>;
+
   return <Card fluid style={{backgroundImage: 'url('+authenticationBackgroundImage+')'}}>
     <Card.Content>
       <Card.Header className={'logo-wrapper'}>Log in to <strong>{AppSettings.App.name}</strong></Card.Header>
@@ -69,6 +70,9 @@ function mapDispatchToProps(dispatch) {
     userActions: bindActionCreators(userActions, dispatch)
   };
 }
+
+
+LoginIndex.propTypes = LoginIndexPropTypes;
 
 export default connect(
   mapStateToProps,

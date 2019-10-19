@@ -9,6 +9,7 @@ import settings from "../config/settings";
 import './App.scss'
 import {hot} from "react-hot-loader";
 import Observables from "../utils/observables";
+
 //import '../utils/serializeObject';
 
 class App extends Component {

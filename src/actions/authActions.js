@@ -16,7 +16,6 @@ const authActions = {
           Observables.call('reloadApp');
         })
         .catch(response => {
-          console.log("catch");
           dispatch({
             type: authActionTypes.setSignInError,
             error: {status: response.status, message: response.body}

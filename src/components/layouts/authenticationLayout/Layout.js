@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React from "react";
 import {Grid} from "semantic-ui-react";
 import "./Layout.scss";
-import authenticationBackgroundImage from "../../../assets/backgrounds/authenticationBackground.jpg"
 
 class AuthenticationLayout extends React.Component {
   render() {
@@ -10,7 +9,9 @@ class AuthenticationLayout extends React.Component {
         <div className={'inner-wrap'}>
           <div className="wrap-fluid">
             <Grid>
-              <Grid.Column className={'authentication-form'} mobile={16} tablet={12} largeScreen={6} widescreen={6} textAlign={'center'} children={this.props.children} />
+              <Grid.Column className={'authentication-form'} mobile={16} tablet={12} largeScreen={6} widescreen={6} textAlign={'center'}>
+                {this.props.children}
+              </Grid.Column>
             </Grid>
           </div>
         </div>

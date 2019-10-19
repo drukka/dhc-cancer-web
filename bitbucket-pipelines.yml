@@ -35,7 +35,7 @@ definitions:
           - export IMAGE_NAME=eu.gcr.io/$GCLOUD_PROJECT/$BITBUCKET_REPO_SLUG:$NEW_VERSION
           - export ENVIRONMENT=$BITBUCKET_DEPLOYMENT_ENVIRONMENT
 
-          # Copy all the environment variables to a file, as KEY=VALUE, to share to other steps
+          # Copy all the environment variables to a file, as KEY=VALUE, to share to patients steps
           - unset LESSOPEN ; unset LESSCLOSE ; unset COMMIT_MESSAGE
           - printenv ; printenv > ENVIRONMENT_VARIABLES.txt
 

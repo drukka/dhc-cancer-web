@@ -1,5 +1,11 @@
 // Centralized propType definitions
-import { shape, number, bool, string, oneOfType } from 'prop-types';
+import {bool, number, oneOfType, shape, string, array, object} from 'prop-types';
+
+export const savings = shape({
+  monthly: oneOfType([number,string]),
+  annual: oneOfType([number,string]),
+  threeYear: oneOfType([number,string]),
+});
 
 export const fuelSavings = shape({
   newMpg: oneOfType([number,string]),
@@ -14,8 +20,7 @@ export const fuelSavings = shape({
   savings: savings
 });
 
-export const savings = shape({
-  monthly: oneOfType([number,string]),
-  annual: oneOfType([number,string]),
-  threeYear: oneOfType([number,string]),
+export const LoginIndex = shape({
+  authActions: array,
+  authReducer: object
 });

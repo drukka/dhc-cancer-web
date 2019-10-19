@@ -1,4 +1,8 @@
-import {necessaryDataIsProvidedToCalculateSavings, calculateMilesDrivenPerMonth, calculateSavingsPerMonth} from './fuelSavings';
+import {
+  calculateMilesDrivenPerMonth,
+  calculateSavingsPerMonth,
+  necessaryDataIsProvidedToCalculateSavings
+} from './fuelSavings';
 
 describe('Fuel Savings Calculator', () => {
   describe('necessaryDataIsProvidedToCalculateSavings', () => {
