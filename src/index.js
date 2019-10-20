@@ -7,6 +7,8 @@ import configureStore, {history} from './store/configureStore';
 import Loadable from "react-loadable";
 import 'semantic-ui-css/semantic.min.css';
 import Loader from './components/modules/loader';
+import Favicon from 'react-favicon';
+import FaviconImage from './assets/logos/favicon.png';
 
 import './favicon.ico';
 import 'babel-polyfill';
@@ -34,6 +36,7 @@ window.debug = {
 render(
   <AppContainer>
     <ErrorBoundary>
+      <Favicon url={FaviconImage} />
       <App store={store} history={history}/>
     </ErrorBoundary>
   </AppContainer>,

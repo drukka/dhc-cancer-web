@@ -29,16 +29,16 @@ const ListView = ({data = []}) => {
                   </Button.Content>
                 </Button>
               </List.Content>
-              <Image avatar src='https://react.semantic-ui.com/images/avatar/small/lena.png' />
+              <Image avatar src='https://i.ya-webdesign.com/images/default-avatar-png-6.png' />
               <List.Content>
                 <strong>{listItem.fullname}</strong><br/>
-                <small>{listItem.username}</small>
+                <span className={'span muted'}>@{listItem.username} / {listItem.typeOfCancer}</span>
               </List.Content>
             </List.Item>)}
           </List>
         </Grid.Column>
       </Grid.Row>
-      <Grid.Row>
+      {Math.round(data.length / itemsPerPage) > 1 && <Grid.Row>
         <Grid.Column width={16} textAlign={'center'}>
           <Pagination
             className={'pagination-margin-top'}
@@ -54,7 +54,7 @@ const ListView = ({data = []}) => {
             totalPages={Math.round(data.length / itemsPerPage)}
           />
         </Grid.Column>
-      </Grid.Row>
+      </Grid.Row>}
     </Grid>
   );
 };

@@ -3,7 +3,7 @@ export default Object.freeze({
     host: 'http://192.168.10.247:8000/api-docs',
     headers: {
       Authentication: {
-        name: 'Authentication',
+        name: 'Authorization',
         localStorageKey: 'AuthenticationToken',
         prefix: 'Bearer '
       }

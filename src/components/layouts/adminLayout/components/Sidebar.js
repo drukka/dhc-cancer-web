@@ -3,7 +3,7 @@ import React from 'react'
 import {Container, Header, Icon, Image, Menu, Sidebar} from 'semantic-ui-react'
 import './Sidebar.scss';
 import SmallLogo from '../../../../assets/logos/small.png';
-import BigLogo from '../../../../assets/logos/logo3mdpi.svg';
+import BigLogo from '../../../../assets/logos/Asset8.png';
 import {Link} from "react-router-dom";
 import Observables from "../../../../utils/observables";
 import authenticationBackgroundImage from "../../../../assets/backgrounds/authenticationBackground.jpg";
@@ -26,14 +26,14 @@ class AdminLayoutSidebar extends React.Component {
   footerBox() {
     return <Menu.Header className={this.state.expanded ? 'sidebar-footer expanded' : 'sidebar-footer'}>
       <Header className={'sidebar-footer-wrapper'} textAlign={'center'}>
-        <Image src='https://ui-avatars.com/api/?name=Ferenc%20Farkas' size='small' bordered centered circular/>
+        <Image src='https://i.ya-webdesign.com/images/default-avatar-png-6.png' size='small' bordered centered circular/>
         {this.state.expanded && <br/>}
         {this.state.expanded && <h3>{this.state.expanded && "Ferenc Farkas"}</h3>}
         {this.state.expanded && <div>
           <Header.Subheader as={Link} to={'/profile'}>Profile</Header.Subheader>
           <Header.Subheader as={Link} to={'/login'} onClick={() => {
             localStorage.clear();
-            Observables.call('reloadApp');
+            location.href = '/login';
           }}>Sign out</Header.Subheader>
         </div>}</Header>
     </Menu.Header>;

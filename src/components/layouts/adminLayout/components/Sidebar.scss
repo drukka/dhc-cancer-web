@@ -3,15 +3,15 @@
   overflow-x: hidden !important;
   -webkit-box-shadow: inset -50px 0px 24px -31px rgba(0,0,0,0.15);
   box-shadow: inset -50px 0px 24px -31px rgba(0,0,0,0.15);
-  background-position: -50px 439px !important;
+  background-position: -50px 400px !important;
   background-size: 1000% !important;
   /* Sidebar Header logo */
   .sidebar-header {
     &.expanded {
       .image {
-        height: 84px !important;
+        height: 102px !important;
         width: 200px !important;
-        margin: 20px auto 20px;
+        margin: 5px auto 10px;
       }
     }
 

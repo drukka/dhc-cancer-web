@@ -4,9 +4,9 @@ import {bindActionCreators} from "redux";
 import authActions from "../../../actions/authActions";
 import userActions from "../../../actions/userActions";
 import {connect} from "react-redux";
-import {Button, Card, Form, Icon, Message} from "semantic-ui-react";
+import {Button, Card, Form, Icon, Image, Message} from "semantic-ui-react";
 import {pages as PagesConfig} from "../../../config/pages";
-import {default as AppSettings} from "../../../config/settings";
+import logo from "../../../assets/logos/Asset7.png";
 import authenticationBackgroundImage from "../../../assets/backgrounds/authenticationBackground.jpg";
 import PropTypes from "prop-types";
 
@@ -46,9 +46,11 @@ const LoginIndex = ({authReducer, authActions}) => {
 
   if(authReducer.token != null) return <Redirect to={PagesConfig.Home.link}/>;
 
-  return <Card fluid style={{backgroundImage: 'url('+authenticationBackgroundImage+')'}}>
+  return <Card fluid style={{backgroundImage: 'url('+authenticationBackgroundImage+')', boxShadow: '0px 0px 11px 2px #00000059'}}>
     <Card.Content>
-      <Card.Header className={'logo-wrapper'}>Log in to <strong>{AppSettings.App.name}</strong></Card.Header>
+      <Card.Header className={'logo-wrapper'}>
+        <Image src={logo} height={'100px'}/>
+      </Card.Header>
       {loginForm()}
     </Card.Content>
     <Card.Content extra>
