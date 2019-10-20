@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Button, Grid, Icon, Image, List, Pagination} from "semantic-ui-react";
 import "./listView.scss";
 import {default as Settings} from "../../../config/settings";
+import {Link} from "react-router-dom";
 
 const {itemsPerPage} = Settings.API.params.list;
 
@@ -19,7 +20,7 @@ const ListView = ({data = []}) => {
             {data.slice(
               (activePage - 1) * itemsPerPage,
               activePage * itemsPerPage
-            ).map((listItem,index) => <List.Item key={'listItem_'+index}>
+            ).map((listItem,index) => <List.Item key={'listItem_'+index} as={Link} to={'/patients/'+listItem.id}>
               <List.Content floated='right'>
                 <Button animated='vertical'>
                   <Button.Content hidden>patient</Button.Content>

@@ -8,7 +8,7 @@ import {Button, Card, Form, Icon, Message} from "semantic-ui-react";
 import {pages as PagesConfig} from "../../../config/pages";
 import {default as AppSettings} from "../../../config/settings";
 import authenticationBackgroundImage from "../../../assets/backgrounds/authenticationBackground.jpg";
-import {LoginIndex as LoginIndexPropTypes} from "../../../types";
+import PropTypes from "prop-types";
 
 const LoginIndex = ({authReducer, authActions}) => {
   const [loading, setLoading] = useState(false);
@@ -72,7 +72,10 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-LoginIndex.propTypes = LoginIndexPropTypes;
+LoginIndex.propTypes = {
+  authActions: PropTypes.array,
+  authReducer: PropTypes.object
+};
 
 export default connect(
   mapStateToProps,

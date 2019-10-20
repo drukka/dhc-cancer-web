@@ -6,26 +6,10 @@ import {Divider, Header, Icon} from "semantic-ui-react";
 import ListView from "../../modules/listView";
 
 const sampleData = [
-  {fullname: 'Allen Craig', username: '@allen.craig', typeOfCancer: 'Gastric cancer', gender: 'male'},
-  {fullname: 'Darlene Franklin', username: '@darlene91', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
-  {fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
+  {id: 1, fullname: 'Allen Craig', username: '@allen.craig', typeOfCancer: 'Gastric cancer', gender: 'male'},
+  {id: 2, fullname: 'Darlene Franklin', username: '@darlene91', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
+  {id: 3, fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'},
+  {id: 4, fullname: 'stephanie sanchez', username: '@stephanie.sanchez', typeOfCancer: 'Persistent trophoblastic disease and choriocarcinoma', gender: 'female'}
 ];
 
 

@@ -9,3 +9,8 @@
 .pagination-margin-top {
   margin-top: 100px;
 }
+
+.ui.inverted.menu .dropdown.item:hover, .ui.inverted.menu .link.item:hover, .ui.inverted.menu a.item:hover, .ui.link.inverted.menu .item:hover {
+  background: #c4596955;
+  color: #fff;
+}

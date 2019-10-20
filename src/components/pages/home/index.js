@@ -24,7 +24,7 @@ const HomeIndex = () => {
     <Feed>
 
       <Feed.Event>
-        <Feed.Label image={'https://www.thispersondoesnotexist.com/image?'+Math.random()} />
+        <Feed.Label image={'https://www.thispersondoesnotexist.com/image'} />
         <Feed.Content>
           <Feed.Summary>
             <a>Helen Troll</a> added <a>2 medical document(s)</a>
@@ -42,7 +42,7 @@ const HomeIndex = () => {
       </Feed.Event>
 
       <Feed.Event>
-        <Feed.Label image={'https://www.thispersondoesnotexist.com/image?'+Math.random()} />
+        <Feed.Label image={'https://www.thispersondoesnotexist.com/image'} />
         <Feed.Content>
           <Feed.Summary>
             <a>Helen Troll</a> marked you as his/her <a>doctor</a>

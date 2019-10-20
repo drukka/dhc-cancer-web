@@ -3,7 +3,7 @@ import React from 'react'
 import {Container, Header, Icon, Image, Menu, Sidebar} from 'semantic-ui-react'
 import './Sidebar.scss';
 import SmallLogo from '../../../../assets/logos/small.png';
-import BigLogo from '../../../../assets/logos/big.png';
+import BigLogo from '../../../../assets/logos/logo3mdpi.svg';
 import {Link} from "react-router-dom";
 import Observables from "../../../../utils/observables";
 import authenticationBackgroundImage from "../../../../assets/backgrounds/authenticationBackground.jpg";
@@ -21,6 +21,7 @@ class AdminLayoutSidebar extends React.Component {
       <Image src={this.state.expanded ? BigLogo : SmallLogo} size='small'/>
     </Menu.Header>;
   }
+
 
   footerBox() {
     return <Menu.Header className={this.state.expanded ? 'sidebar-footer expanded' : 'sidebar-footer'}>

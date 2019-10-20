@@ -20,15 +20,5 @@ export default {
       loader: () => import('../../components/pages/home' /* webpackChunkName: "pages.home.index" */),
       loading: Loader
     })
-  },
-  Patients: {
-    title: 'patients.title',
-    link: '/patients',
-    exact: true,
-    layout: ADMIN_LAYOUT,
-    component: Loadable({
-      loader: () => import('../../components/pages/patients' /* webpackChunkName: "pages.patient.index" */),
-      loading: Loader
-    })
   }
 }
